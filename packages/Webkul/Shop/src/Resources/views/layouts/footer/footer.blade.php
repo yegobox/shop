@@ -4,7 +4,7 @@
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-                    <div  style="text-align:center"> <a href="index.html" style="position: relative;left: 550px"><img src="images/logo.png" alt="logo"> </a> </div>
+                    <div  style="text-align:center"> <a href="#" style="position: relative;left: 550px"><img src="/images/logo.png" alt="logo"> </a> </div>
                 </div>
                 <div class="row ">
                     <address>
@@ -86,9 +86,9 @@
                     <div class="col-sm-5 col-xs-12 coppyright">Copyright © 2019  tous les droits reserver à<a href="#"> MAAFÈ </a> </div>
                     <div class="col-sm-7 col-xs-12 payment-accept">
                         <ul>
-                            <li> <a href="#"><img src="images/orangemoney.jpeg" alt="methode payement"></a> </li>
-                            <li> <a href="#"><img src="images/mtnmobilemoney.jpeg" alt="methode payement"></a> </li>
-                            <li> <a href="#"><img src="images/ecobankpay.png" alt="methode payement"></a> </li>
+                            <li> <a href="#"><img src="/images/orangemoney.jpeg" alt="methode payement"></a> </li>
+                            <li> <a href="#"><img src="/images/mtnmobilemoney.jpeg" alt="methode payement"></a> </li>
+                            <li> <a href="#"><img src="/images/ecobankpay.png" alt="methode payement"></a> </li>
                         </ul>
                     </div>
                 </div>
