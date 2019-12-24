@@ -1,94 +1,98 @@
+
 <div class="footer">
-    <div class="footer-content">
-        <div class="footer-list-container">
-
-            <?php
-                $categories = [];
-
-                foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category){
-                    if ($category->slug)
-                        array_push($categories, $category);
-                }
-            ?>
-
-            @if (count($categories))
-                <div class="list-container">
-                    <span class="list-heading">Categories</span>
-
-                    <ul class="list-group">
-                        @foreach ($categories as $key => $category)
-                            <li>
-                                <a href="{{ route('shop.productOrCategory.index', $category->slug) }}">{{ $category->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
+    <footer >
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div  style="text-align:center"> <a href="index.html" style="position: relative;left: 550px"><img src="images/logo.png" alt="logo"> </a> </div>
                 </div>
-            @endif
-
-            {!! DbView::make(core()->getCurrentChannel())->field('footer_content')->render() !!}
-
-            <div class="list-container">
-                @if(core()->getConfigData('customer.settings.newsletter.subscription'))
-                    <span class="list-heading">{{ __('shop::app.footer.subscribe-newsletter') }}</span>
-                    <div class="form-container">
-                        <form action="{{ route('shop.subscribe') }}">
-                            <div class="control-group" :class="[errors.has('subscriber_email') ? 'has-error' : '']">
-                                <input type="email" class="control subscribe-field" name="subscriber_email" placeholder="Email Address" required><br/>
-
-                                <button class="btn btn-md btn-primary">{{ __('shop::app.subscription.subscribe') }}</button>
+                <div class="row ">
+                    <address>
+                        <p> <i class="fa fa-map-marker"></i>Conakry, axe coza camp carrefour </p>
+                        <p><i class="fa fa-mobile"></i><span>+ 224 620 220 804</span> </p>
+                        <p> <i class="fa fa-envelope"></i><span><a href="mailto:email@domain.com">contact@maafe.com</a></span></p>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12 col-md-3">
+                        <div class="footer-links">
+                            <h5>Liens rapide</h5>
+                            <ul class="links">
+                                <li><a href="#" title="Product Recall">Reservation de panier</a></li>
+                                <li><a href="#" title="Gift Vouchers">Nos tarifs</a></li>
+                                <li><a href="#" title="Shipping Options">Option de livraison</a></li>
+                                <li><a href="#" title="Help &amp; FAQs">Termes &amp; condition</a></li>
+                                <li><a href="#" title="Order history">historique des livraison</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 col-md-3">
+                        <div class="footer-links">
+                            <h5>Service après vente</h5>
+                            <ul class="links">
+                                <li><a href="account_page.html">Revandications et plaintes</a></li>
+                                <li><a href="shopping_cart.html">Annulation livraison</a></li>
+                                <li><a href="#">sugestions</a></li>
+                                <li><a href="#">témoignages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 col-md-2">
+                        <div class="footer-links">
+                            <h5>MAAFÈ JOBS</h5>
+                            <ul class="links">
+                                <li><a href="devenir_livreur.html">Devenir livreur</a></li>
+                                <li><a href="#">Stages de travails</a></li>
+                                <li><a href="#">Formations</a></li>
+                                <li><a href="about_us.html">A-propos</a></li>
+                                <li><a href="contact_us.html">Contactez-nous</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="footer-links">
+                            <div class="footer-newsletter">
+                                <h5>Newsletter</h5>
+                                <form id="newsletter-validate-detail" method="post" action="#">
+                                    <div class="newsletter-inner">
+                                        <p>inscrivez vous a notre newsletter!</p>
+                                        <input class="newsletter-email" name='Email' placeholder='Entrer votre email'/>
+                                        <input class="button subscribe" type="submit" title="Subscribe"></button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
-                    </div>
-                @endif
-
-                <?php
-                    $query = parse_url(\Illuminate\Support\Facades\Request::path(), PHP_URL_QUERY);
-                    $searchTerm = explode("&", $query);
-
-                    foreach($searchTerm as $term){
-                        if (strpos($term, 'term') !== false) {
-                            $serachQuery = $term;
-                        }
-                    }
-                ?>
-
-                <span class="list-heading">{{ __('shop::app.footer.locale') }}</span>
-                <div class="form-container">
-                    <div class="control-group">
-                        <select class="control locale-switcher" onchange="window.location.href = this.value" @if (count(core()->getCurrentChannel()->locales) == 1) disabled="disabled" @endif>
-
-                            @foreach (core()->getCurrentChannel()->locales as $locale)
-                                @if (isset($serachQuery))
-                                    <option value="?{{ $serachQuery }}&locale={{ $locale->code }}" {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>{{ $locale->name }}</option>
-                                @else
-                                    <option value="?locale={{ $locale->code }}" {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>{{ $locale->name }}</option>
-                                @endif
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-
-                <div class="currency">
-                    <span class="list-heading">{{ __('shop::app.footer.currency') }}</span>
-                    <div class="form-container">
-                        <div class="control-group">
-                            <select class="control locale-switcher" onchange="window.location.href = this.value">
-
-                                @foreach (core()->getCurrentChannel()->currencies as $currency)
-                                    @if (isset($serachQuery))
-                                        <option value="?{{ $serachQuery }}&currency={{ $currency->code }}" {{ $currency->code == core()->getCurrentCurrencyCode() ? 'selected' : '' }}>{{ $currency->code }}</option>
-                                    @else
-                                        <option value="?currency={{ $currency->code }}" {{ $currency->code == core()->getCurrentCurrencyCode() ? 'selected' : '' }}>{{ $currency->code }}</option>
-                                    @endif
-                                @endforeach
-
-                            </select>
+                            <div class="social">
+                                <h5>Suivez-nous sur</h5>
+                                <h7>ratez plus un bon plan</h7>
+                                <ul class="inline-mode">
+                                    <li class="social-network fb"><a title="Connect us on Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="social-network tw"><a title="Connect us on Twitter" href="#"><i class="icon-social-twitter icons"></i></a></li>
+                                    <li class="social-network linkedin"><a title="Connect us on Linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li class="social-network instagram"><a title="Connect us on Instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 col-xs-12 coppyright">Copyright © 2019  tous les droits reserver à<a href="#"> MAAFÈ </a> </div>
+                    <div class="col-sm-7 col-xs-12 payment-accept">
+                        <ul>
+                            <li> <a href="#"><img src="images/orangemoney.jpeg" alt="methode payement"></a> </li>
+                            <li> <a href="#"><img src="images/mtnmobilemoney.jpeg" alt="methode payement"></a> </li>
+                            <li> <a href="#"><img src="images/ecobankpay.png" alt="methode payement"></a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
