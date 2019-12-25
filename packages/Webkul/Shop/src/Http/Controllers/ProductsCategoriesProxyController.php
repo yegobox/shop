@@ -60,12 +60,10 @@ class ProductsCategoriesProxyController extends Controller
      */
     public function index(string $slugOrPath)
     {
-
         if ($category = $this->categoryRepository->findByPath($slugOrPath)) {
 
             return view($this->_config['category_view'], compact('category'));
         }
-
         if ($product = $this->productRepository->findBySlug($slugOrPath)) {
 
             $customer = auth()->guard('customer')->user();
