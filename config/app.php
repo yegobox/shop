@@ -1,5 +1,7 @@
 <?php
 
+use Webkul\API\Providers\APIServiceProvider;
+
 return [
 
     /*
@@ -13,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Bagisto'),
+    'name' => env('APP_NAME', 'Shop'),
 
     /*
     |--------------------------------------------------------------------------
@@ -244,9 +246,9 @@ return [
         Webkul\Paypal\Providers\PaypalServiceProvider::class,
         Webkul\Sales\Providers\SalesServiceProvider::class,
         Webkul\Tax\Providers\TaxServiceProvider::class,
-        Webkul\API\Providers\APIServiceProvider::class,
         Webkul\Discount\Providers\DiscountServiceProvider::class,
-        Webkul\CMS\Providers\CMSServiceProvider::class
+        Webkul\CMS\Providers\CMSServiceProvider::class,
+        Webkul\API\Providers\APIServiceProvider::class
     ],
 
     /*
