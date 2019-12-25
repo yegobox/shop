@@ -25,6 +25,7 @@ class Category extends TranslatableModel implements CategoryContract
 
     protected $with = ['translations'];
 
+
     /**
      * Get image url for the category image.
      */

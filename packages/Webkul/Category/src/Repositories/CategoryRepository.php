@@ -21,7 +21,7 @@ class CategoryRepository extends Repository
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param App $app
      */
     public function __construct(App $app)
     {

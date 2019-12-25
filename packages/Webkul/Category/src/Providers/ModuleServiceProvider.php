@@ -3,11 +3,13 @@
 namespace Webkul\Category\Providers;
 
 use Konekt\Concord\BaseModuleServiceProvider;
+use Webkul\Category\Models\Category;
+use Webkul\Category\Models\CategoryTranslation;
 
 class ModuleServiceProvider extends BaseModuleServiceProvider
 {
     protected $models = [
-        \Webkul\Category\Models\Category::class,
-        \Webkul\Category\Models\CategoryTranslation::class,
+        Category::class,
+        CategoryTranslation::class,
     ];
 }

@@ -2,6 +2,7 @@
 
 namespace Webkul\Checkout\Repositories;
 
+use Illuminate\Support\Facades\Log;
 use Webkul\Core\Eloquent\Repository;
 
 /**
@@ -45,10 +46,11 @@ class CartRepository extends Repository
     public function update(array $data, $id, $attribute = "id")
     {
         $cart = $this->find($id);
+        if($cart){
+            $cart->update($data);
 
-        $cart->update($data);
-
-        return $cart;
+            return $cart;
+        }
     }
 
     /**
