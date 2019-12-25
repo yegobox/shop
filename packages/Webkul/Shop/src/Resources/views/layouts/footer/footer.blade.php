@@ -86,6 +86,7 @@
                     <div class="col-sm-5 col-xs-12 coppyright">Copyright © 2019  tous les droits reserver à<a href="#"> MAAFÈ </a> </div>
                     <div class="col-sm-7 col-xs-12 payment-accept">
                         <ul>
+
                             <li> <a href="#"><img src="/images/orangemoney.jpeg" alt="methode payement"></a> </li>
                             <li> <a href="#"><img src="/images/mtnmobilemoney.jpeg" alt="methode payement"></a> </li>
                             <li> <a href="#"><img src="/images/ecobankpay.png" alt="methode payement"></a> </li>
