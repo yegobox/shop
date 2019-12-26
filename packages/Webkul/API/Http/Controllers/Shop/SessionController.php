@@ -37,7 +37,7 @@ class SessionController extends Controller
      */
     public function __construct(CustomerRepository $customerRepository)
     {
-        $this->guard = request()->has('token') ? 'api' : 'customer';
+        $this->guard = request()->has('token') ? 'api' : 'customer-api';
 
         auth()->setDefaultDriver($this->guard);
 
