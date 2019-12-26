@@ -1,24 +1,23 @@
-
 <div class="footer">
-    <footer >
+    <footer>
         <div class="footer-top">
             <div class="container">
-                <div class="row">
-                    <div  style="text-align:center"> <a href="#" style="position: relative;left: 550px"><img src="/images/logo.png" alt="logo"> </a> </div>
+                <div class="row-1">
+                        <div style="text-align:center"> <a href="#"><img src="/images/logo.png" alt="logo"> </a> </div>
+                    <br />
+                        <address>
+                            <p> <i class="fa fa-map-marker"></i>Conakry, axe coza camp carrefour </p>
+                            <p><i class="fa fa-mobile"></i><span>+ 224 620 220 804</span> </p>
+                            <p> <i class="fa fa-envelope"></i><span><a href="mailto:email@domain.com">contact@maafe.com</a></span></p>
+                        </address>
                 </div>
-                <div class="row ">
-                    <address>
-                        <p> <i class="fa fa-map-marker"></i>Conakry, axe coza camp carrefour </p>
-                        <p><i class="fa fa-mobile"></i><span>+ 224 620 220 804</span> </p>
-                        <p> <i class="fa fa-envelope"></i><span><a href="mailto:email@domain.com">contact@maafe.com</a></span></p>
-                    </address>
-                </div>
+
             </div>
         </div>
         <div class="footer-inner">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-xs-12 col-md-3">
+                <div class="row-1">
+                    <div class="column">
                         <div class="footer-links">
                             <h5>Liens rapide</h5>
                             <ul class="links">
@@ -30,7 +29,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-xs-12 col-md-3">
+                    <div class="column">
                         <div class="footer-links">
                             <h5>Service après vente</h5>
                             <ul class="links">
@@ -41,7 +40,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-xs-12 col-md-2">
+                    <div class="column">
                         <div class="footer-links">
                             <h5>MAAFÈ JOBS</h5>
                             <ul class="links">
@@ -53,26 +52,30 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-4">
+                    <div class="column">
                         <div class="footer-links">
-                            <div class="footer-newsletter">
+                            <!-- <div class="footer-newsletter">
                                 <h5>Newsletter</h5>
                                 <form id="newsletter-validate-detail" method="post" action="#">
                                     <div class="newsletter-inner">
                                         <p>inscrivez vous a notre newsletter!</p>
-                                        <input class="newsletter-email" name='Email' placeholder='Entrer votre email'/>
+                                        <input class="newsletter-email" name='Email' placeholder='Entrer votre email' />
                                         <input class="button subscribe" type="submit" title="Subscribe"></button>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
                             <div class="social">
                                 <h5>Suivez-nous sur</h5>
                                 <h7>ratez plus un bon plan</h7>
                                 <ul class="inline-mode">
-                                    <li class="social-network fb"><a title="Connect us on Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="social-network tw"><a title="Connect us on Twitter" href="#"><i class="icon-social-twitter icons"></i></a></li>
-                                    <li class="social-network linkedin"><a title="Connect us on Linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li class="social-network instagram"><a title="Connect us on Instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li class="social-network fb"><a title="Connect us on Facebook" href="#"><i
+                                                class="fa fa-facebook"></i></a></li>
+                                    <li class="social-network tw"><a title="Connect us on Twitter" href="#"><i
+                                                class="icon-social-twitter icons"></i></a></li>
+                                    <li class="social-network linkedin"><a title="Connect us on Linkedin" href="#"><i
+                                                class="fa fa-linkedin"></i></a></li>
+                                    <li class="social-network instagram"><a title="Connect us on Instagram" href="#"><i
+                                                class="fa fa-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -82,9 +85,11 @@
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-5 col-xs-12 coppyright">Copyright © 2019  tous les droits reserver à<a href="#"> MAAFÈ </a> </div>
-                    <div class="col-sm-7 col-xs-12 payment-accept">
+                <div class="row-1">
+                    <div class="column-50 coppyright">Copyright © 2019 tous les droits reserver à<a href="#">
+                            MAAFÈ </a> 
+                        </div>
+                    <div class="column-50 col-xs-12 payment-accept">
                         <ul>
 
                             <li> <a href="#"><img src="/images/orangemoney.jpeg" alt="methode payement"></a> </li>
