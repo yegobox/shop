@@ -10,15 +10,15 @@
             <span class="icon cart-icon"></span>
         </a>
 
-        <span class="name">
+        <span class="name" style="color:#ffff!important">
             {{ __('shop::app.header.cart') }}
-            <span class="count"> ({{ $cart->items->count() }})</span>
+            <span class="count" style="color:#ffff!important"> ({{ $cart->items->count() }})</span>
         </span>
 
-        <i class="icon arrow-down-icon"></i>
+        <i class="icon arrow-down-icon" style="color:#ffff!important"></i>
     </div>
 
-    <div class="dropdown-list" style="display: none; top: 52px; right: 0px;">
+    <div class="dropdown-list" style="display: none; top: 52px; right: 0px;z-index:999">
         <div class="dropdown-container">
             <div class="dropdown-cart">
                 <div class="dropdown-header">

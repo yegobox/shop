@@ -1,31 +1,38 @@
-<div class="header" id="header">
-    <div class="header-top">
+<div class="header header-container" id="header">
+<div class="header-top-1">
+        <div class="container">
+          <div class="row-1"> 
+            <!-- Header Language -->
+            <div class="colum-100">
+              <div class="welcome-msg">Bienvenu chez MAAFÈ! </div>
+              
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    <div class="main-container-wrapper">
+    <div class="header-top" style="padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;">
+   
+
         <div class="left-content">
             <ul class="logo-container">
                 <li>
-                    <a href="{{ route('shop.home.index') }}">
-                        @if ($logo = core()->getCurrentChannel()->logo_url)
-                            <img class="logo" src="{{ $logo }}" />
-                        @else
-                            <img class="logo" src="{{ bagisto_asset('images/logo.svg') }}" />
-                        @endif
+                <a href="{{ route('admin.dashboard.index') }}">
+                @if (core()->getConfigData('general.design.admin_logo.logo_image'))
+                    <img style="margin-top: 20px;height: 98px;width: 188px;" src="{{ \Illuminate\Support\Facades\Storage::url(core()->getConfigData('general.design.admin_logo.logo_image')) }}" alt="{{ config('app.name') }}" style="height: 40px; width: 110px;"/>
+                @else
+                    <img style="margin-top: 20px;height: 98px;width: 188px;" src="{{ asset('vendor/webkul/ui/assets/images/logo.png') }}" alt="{{ config('app.name') }}"/>
+                @endif
+            </a>
                     </a>
                 </li>
             </ul>
 
-            <ul class="search-container">
-                <li class="search-group">
-                    <form role="search" action="{{ route('shop.search.index') }}" method="GET" style="display: inherit;">
-                        <input type="search" name="term" class="search-field" placeholder="{{ __('shop::app.header.search-text') }}" required>
-
-                        <div class="search-icon-wrapper">
-                            <button class="" class="background: none;">
-                                <i class="icon icon-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </li>
-            </ul>
+          
         </div>
 
         <?php
@@ -39,9 +46,9 @@
             }
         ?>
 
-        <div class="right-content">
+        <div class="right-content" style="position: relative!important;left: 13px!important;">
 
-            <span class="search-box"><span class="icon icon-search" id="search"></span></span>
+            <span class="search-box"><span class="icon icon-search" id="search" style=""></span></span>
 
             <ul class="right-content-menu">
 
@@ -52,7 +59,7 @@
                         <span class="dropdown-toggle">
                             {{ core()->getCurrentCurrencyCode() }}
 
-                            <i class="icon arrow-down-icon"></i>
+                            <i class="icon arrow-down-icon" style=""></i>
                         </span>
 
                         <ul class="dropdown-list currency">
@@ -78,9 +85,9 @@
                     <span class="dropdown-toggle">
                         <i class="icon account-icon"></i>
 
-                        <span class="name">{{ __('shop::app.header.account') }}</span>
+                        <span class="name" style="color:#ffff!important">{{ __('shop::app.header.account') }}</span>
 
-                        <i class="icon arrow-down-icon"></i>
+                        <i class="icon arrow-down-icon" style="color:#ffff!important"></i>
                     </span>
 
                     @guest('customer')
@@ -154,8 +161,24 @@
                 {!! view_render_event('bagisto.shop.layout.header.cart-item.after') !!}
 
             </ul>
+            <br />
+            <ul class="search-container">
+                <li class="search-group">
+                    <form role="search" class="search-form" action="{{ route('shop.search.index') }}" method="GET" style="display: inherit;">
+                        <input type="search" name="term" class="search-field search-boxs" placeholder="{{ __('shop::app.header.search-text') }}" required>
 
-            <span class="menu-box" ><span class="icon icon-menu" id="hammenu"></span>
+                        <div class="search-icon-wrapper">
+                            <button class="btn search-btn" class="background: #fff!important;">
+                                <i class="icon icon-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </li>
+
+              
+            </ul>
+          
+            <span class="menu-box" ><span class="icon icon-menu"  style="" id="hammenu"></span>
         </div>
     </div>
 
@@ -167,13 +190,14 @@
         <form role="search" action="{{ route('shop.search.index') }}" method="GET" style="display: inherit;">
             <div class="search-content">
                 <button style="background: none; border: none; padding: 0px;">
-                    <i class="icon icon-search"></i>
+                    <i class="icon icon-search" style=""></i>
                 </button>
                 <input type="search" name="term" class="search">
-                <i class="icon icon-menu-back right"></i>
+                <i class="icon icon-menu-back right" style=""></i>
             </div>
         </form>
     </div>
+        </div>
 </div>
 
 @push('scripts')

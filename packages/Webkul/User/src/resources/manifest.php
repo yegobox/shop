@@ -1,6 +1,6 @@
 <?php
 
  return [
-    'name'    => 'Webkul Bagisto User',
+    'name'    => 'Shop',
     'version' => '0.0.1'
  ];
