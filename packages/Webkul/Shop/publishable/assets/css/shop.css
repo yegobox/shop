@@ -1242,7 +1242,9 @@ section.slider-block div.slider-content div.slider-control .light-right-icon {
         display: inline-block;
         margin-left: 10px
     }
-
+    .search-boxs{
+        display:none!important;
+    }
     .header .header-top div.right-content .search-box {
         display: inline-block;
         margin-right: 10px;

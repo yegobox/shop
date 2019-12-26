@@ -12,7 +12,6 @@
     <meta http-equiv="content-language" content="{{ app()->getLocale() }}">
 
     <link rel="stylesheet" href="{{ bagisto_asset('css/shop.css') }}">
-    <link rel="stylesheet" href="{{ bagisto_asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
 
     <style>
@@ -435,6 +434,9 @@
 
 
 @media screen and (max-width: 600px) {
+    .search-boxs{
+        display:none!important;
+    }
   .column {
     margin-left:30px;
     width: 100%;
