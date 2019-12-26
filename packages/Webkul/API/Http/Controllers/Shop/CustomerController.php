@@ -3,6 +3,7 @@
 namespace Webkul\API\Http\Controllers\Shop;
 
 use Illuminate\Support\Facades\Event;
+use Prettus\Validator\Exceptions\ValidatorException;
 use Webkul\Customer\Repositories\CustomerRepository;
 
 /**
@@ -41,6 +42,7 @@ class CustomerController extends Controller
      * Method to store user's sign up form data to DB.
      *
      * @return Mixed
+     * @throws ValidatorException
      */
     public function create()
     {

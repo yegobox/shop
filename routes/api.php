@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,4 +12,10 @@ use Illuminate\Http\Request;
 */
 Route::get('products',function (){
     return;
+});
+Route::post('customer/register',function(){
+   return;
+});
+Route::post('customer/login',function(){
+   return;
 });
