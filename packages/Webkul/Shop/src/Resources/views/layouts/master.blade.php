@@ -453,6 +453,19 @@
     padding: 0px;
     display: inline-block;
 }
+
+.header .header-bottom {
+    max-height: 200px!important;
+    overflow:auto;
+}
+.header .header-bottom .nav>li {
+    display:block!important;
+}
+
+.header .header-bottom .nav>li>a {
+    margin-bottom: 1px;
+    display:block!important;
+}
 }
         .footer {
             background-color: #f2f2f2;
