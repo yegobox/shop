@@ -13,7 +13,16 @@
         <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
 
         <style>
-            .container {
+        .btn.btn-primary {
+    color: #fff!important;
+    background-color: #fea712!important;;
+    border-radius: 5px!important;;
+    border: 1px solid #fea712!important;;
+}
+
+.navbar-left ul.menubar li.menu-item.active a {
+    color: #fea712;
+}           .container {
                 text-align: center;
                 position: absolute;
                 width: 100%;

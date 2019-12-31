@@ -609,6 +609,10 @@
     border-radius: 5px!important;;
     border: 1px solid #fea712!important;;
 }
+.checkbox .checkbox-view {
+    height: 25px!important;
+    width: 24px!important;
+}
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @if ($favicon = core()->getCurrentChannel()->favicon_url)

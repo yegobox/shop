@@ -99,7 +99,7 @@
     <div class="dropdown-toggle">
         <div style="display: inline-block; cursor: pointer;">
             <span class="icon cart-icon"></span>
-            <span class="name">{{ __('shop::app.minicart.cart') }}<span class="count"> ({{ __('shop::app.minicart.zero') }}) </span></span>
+            <span class="name" style="color:#ffff!important">{{ __('shop::app.minicart.cart') }}<span class="count"> ({{ __('shop::app.minicart.zero') }}) </span></span>
         </div>
     </div>
 @endif
