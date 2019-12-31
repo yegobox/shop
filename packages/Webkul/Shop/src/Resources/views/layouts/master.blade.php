@@ -603,6 +603,12 @@
     bottom: 4px;
     width: 80%;
 }
+.btn.btn-primary {
+    color: #fff!important;
+    background-color: #fea712!important;;
+    border-radius: 5px!important;;
+    border: 1px solid #fea712!important;;
+}
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @if ($favicon = core()->getCurrentChannel()->favicon_url)
