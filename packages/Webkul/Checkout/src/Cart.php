@@ -12,7 +12,7 @@ use Webkul\Checkout\Models\CartPayment;
 use Webkul\Customer\Repositories\WishlistRepository;
 use Webkul\Customer\Repositories\CustomerAddressRepository;
 use Illuminate\Support\Facades\Event;
-
+use Log;
 /**
  * Facades handler for all the methods to be implemented in Cart.
  *
@@ -140,8 +140,10 @@ class Cart {
 
         $product = $this->productRepository->findOneByField('id', $productId);
 
+        // return $data;
+        
         $cartProducts = $product->getTypeInstance()->prepareForCart($data);
-
+       
         if (is_string($cartProducts)) {
             $this->collectTotals();
 
@@ -326,6 +328,7 @@ class Cart {
             $cart = $this->cartRepository->findOneWhere(['customer_id' => $this->getCurrentCustomer()->user()->id, 'is_active' => 1]);
 
             $guestCart = session()->get('cart');
+            
 
             //when the logged in customer is not having any of the cart instance previously and are active.
             if (! $cart) {

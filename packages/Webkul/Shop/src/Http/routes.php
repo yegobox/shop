@@ -1,6 +1,12 @@
 <?php
 
-Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function () {
+// Route::middleware('auth:api')->group(function() {
+//     Route::get('/userssss' , function(){
+//         return Auth::user();
+//     });
+// });
+
+Route::group(['middleware' => ['web', 'locale', 'theme', 'currency','auth:api']], function () {
     //Store front home
     Route::get('/', 'Webkul\Shop\Http\Controllers\HomeController@index')->defaults('_config', [
         'view' => 'shop::home.index'

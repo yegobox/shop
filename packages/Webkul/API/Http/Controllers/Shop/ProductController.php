@@ -3,6 +3,7 @@
 namespace Webkul\API\Http\Controllers\Shop;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
@@ -25,8 +26,7 @@ class ProductController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param  Webkul\Product\Repositories\ProductRepository $productRepository
-     * @return void
+     * @param ProductRepository $productRepository
      */
     public function __construct(ProductRepository $productRepository)
     {
@@ -36,7 +36,7 @@ class ProductController extends Controller
     /**
      * Returns a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
@@ -46,7 +46,7 @@ class ProductController extends Controller
     /**
      * Returns a individual resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return ProductResource
      */
     public function get($id)
     {
@@ -58,7 +58,7 @@ class ProductController extends Controller
     /**
      * Returns product's additional information.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function additionalInformation($id)
     {
@@ -70,7 +70,7 @@ class ProductController extends Controller
     /**
      * Returns product's additional information.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function configurableConfig($id)
     {
