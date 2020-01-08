@@ -325,7 +325,7 @@ class Cart {
     public function mergeCart()
     {
         if (session()->has('cart')) {
-            $cart = $this->cartRepository->findOneWhere(['customer_id' => $this->getCurrentCustomer()->user()->id, 'is_active' => 1]);
+            $cart = $this->cartRepository->findOneWhere(['customer_id' => is_object($this->getCurrentCustomer())? $this->getCurrentCustomer()->user()->id:null, 'is_active' => 1]);
 
             $guestCart = session()->get('cart');
             
