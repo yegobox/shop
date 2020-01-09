@@ -4,7 +4,7 @@ namespace Webkul\Shipping;
 
 use Illuminate\Support\Facades\Config;
 use Webkul\Checkout\Facades\Cart;
-
+use Log;
 /**
  * Class Shipping.
  *
@@ -79,9 +79,11 @@ class Shipping
         $shippingAddress = $cart->shipping_address;
 
         foreach ($this->rates as $rate) {
-            $rate->cart_address_id = $shippingAddress->id;
+       
+            //TODO: save the cart_address id later 
+            // $rate->cart_address_id = $shippingAddress->id;
 
-            $rate->save();
+            // $rate->save();
         }
     }
 

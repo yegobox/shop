@@ -12,6 +12,7 @@ use Webkul\Checkout\Models\CartPayment;
 use Webkul\Customer\Repositories\WishlistRepository;
 use Webkul\Customer\Repositories\CustomerAddressRepository;
 use Illuminate\Support\Facades\Event;
+use Auth;
 use Log;
 /**
  * Facades handler for all the methods to be implemented in Cart.
@@ -422,6 +423,7 @@ class Cart {
     {
         $cart = null;
 
+        Log::debug(Auth::user());
         if ($this->getCurrentCustomer()->check()) {
             $cart = $this->cartRepository->findOneWhere([
                 'customer_id' => $this->getCurrentCustomer()->user()->id,
@@ -571,7 +573,7 @@ class Cart {
      */
     public function saveShippingMethod($shippingMethodCode)
     {
-        
+
         if (! $cart = $this->getCart())
             return false;
 
