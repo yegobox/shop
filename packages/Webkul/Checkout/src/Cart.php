@@ -453,7 +453,8 @@ class Cart {
         if ($cart->haveStockableItems()) {
             $data['shipping_address'] = $cart->shipping_address->toArray();
 
-            $data['selected_shipping_rate'] = $cart->selected_shipping_rate->toArray();
+            //TODO:fix the shipping rate later has an issue.
+            // $data['selected_shipping_rate'] = $cart->selected_shipping_rate->toArray();
         }
 
         $data['payment'] = $cart->payment->toArray();
