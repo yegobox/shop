@@ -119,7 +119,6 @@ class Cart {
     public function getCurrentCustomer()
     {
         $guard = request()->has('token') ? 'api' : 'customer';
-
         return auth()->guard($guard);
     }
 
@@ -423,16 +422,18 @@ class Cart {
     {
         $cart = null;
 
-        Log::debug(Auth::user());
+       
         if ($this->getCurrentCustomer()->check()) {
+           
             $cart = $this->cartRepository->findOneWhere([
                 'customer_id' => $this->getCurrentCustomer()->user()->id,
                 'is_active' => 1
             ]);
         } elseif (session()->has('cart')) {
+           
             $cart = $this->cartRepository->find(session()->get('cart')->id);
         }
-
+       
         return $cart && $cart->is_active ? $cart : null;
     }
 
