@@ -454,6 +454,7 @@ class Cart {
             $data['shipping_address'] = $cart->shipping_address->toArray();
 
             //TODO:fix the shipping rate later has an issue.
+            $data['selected_shipping_rate'] = [];
             // $data['selected_shipping_rate'] = $cart->selected_shipping_rate->toArray();
         }
 
