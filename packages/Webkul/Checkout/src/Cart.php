@@ -317,6 +317,7 @@ class Cart {
         return true;
     }
 
+
     /**
      * This function handles when guest has some of cart products and then logs in.
      *
@@ -570,6 +571,7 @@ class Cart {
      */
     public function saveShippingMethod($shippingMethodCode)
     {
+        
         if (! $cart = $this->getCart())
             return false;
 

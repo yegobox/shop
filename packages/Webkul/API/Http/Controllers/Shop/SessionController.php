@@ -16,6 +16,7 @@ use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
  */
 class SessionController extends Controller
 {
+
     /**
      * Contains current guard
      *
@@ -72,6 +73,7 @@ class SessionController extends Controller
 
         $customer = auth($this->guard)->user();
 
+        
         return response()->json([
             'token' => $jwtToken,
             'message' => 'Logged in successfully.',

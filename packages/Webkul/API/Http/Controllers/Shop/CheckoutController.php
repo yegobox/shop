@@ -127,8 +127,13 @@ class CheckoutController extends Controller
     {
         $shippingMethod = request()->get('shipping_method');
 
+       
+
         if (Cart::hasError() || !$shippingMethod || ! Cart::saveShippingMethod($shippingMethod))
-            abort(400);
+            return response()->json([
+                'message' => "no cart found or invalid data"
+            ],422);
+
 
         Cart::collectTotals();
 

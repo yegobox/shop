@@ -19,5 +19,9 @@ Route::post('customer/register',function(){
 Route::post('customer/login',function(){
    return;
 });
+// Route::post('checkout/save-shipping',function(){
+//    return "here";
+// });
+
 
 

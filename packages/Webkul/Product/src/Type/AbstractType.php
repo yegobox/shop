@@ -563,6 +563,11 @@ abstract class AbstractType
      */
     public function compareOptions($options1, $options2)
     {
+        if(!isset( $options2['product_id'])){
+            return response()->json([
+                'message'=>'product_id key is missing from your request'
+            ]);
+        }
         if ($this->product->id != $options2['product_id']) {
             return false;
         } else {

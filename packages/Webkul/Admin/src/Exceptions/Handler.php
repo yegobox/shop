@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\ErrorException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use Log;
 class Handler extends ExceptionHandler
 {
     protected $jsonErrorMessages = [
@@ -30,6 +30,8 @@ class Handler extends ExceptionHandler
     {
         $path = $this->isAdminUri() ? 'admin' : 'shop';
 
+        //keep reporting errors in laravel log but for client do not not.
+        Log::debug($exception);
         if ($exception instanceof HttpException) {
             $statusCode = in_array($exception->getStatusCode(), [401, 403, 404, 503]) ? $exception->getStatusCode() : 500;
 
