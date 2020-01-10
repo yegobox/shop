@@ -13,6 +13,9 @@
 Route::get('products',function (){
     return;
 });
+Route::get('categories',function (){
+   return;
+});
 Route::post('customer/register',function(){
    return;
 });
