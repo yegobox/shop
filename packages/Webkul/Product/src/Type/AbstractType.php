@@ -167,7 +167,9 @@ abstract class AbstractType
         $product->update($data);
 
         foreach ($product->attribute_family->custom_attributes as $attribute) {
-            if ($attribute->type == 'boolean') {
+            $route = request()->route() ? request()->route()->getName() : "";
+
+            if ($attribute->type == 'boolean' && $route != 'admin.catalog.products.massupdate') {
                 $data[$attribute->code] = isset($data[$attribute->code]) && $data[$attribute->code] ? 1 : 0;
             }
 
@@ -175,7 +177,7 @@ abstract class AbstractType
                 continue;
             }
 
-            if ($attribute->type == 'date' && $data[$attribute->code] == '') {
+            if ($attribute->type == 'date' && $data[$attribute->code] == '' && $route != 'admin.catalog.products.massupdate') {
                 $data[$attribute->code] = null;
             }
 
@@ -561,6 +563,11 @@ abstract class AbstractType
      */
     public function compareOptions($options1, $options2)
     {
+        if(!isset( $options2['product_id'])){
+            return response()->json([
+                'message'=>'product_id key is missing from your request'
+            ]);
+        }
         if ($this->product->id != $options2['product_id']) {
             return false;
         } else {

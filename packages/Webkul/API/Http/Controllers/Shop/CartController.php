@@ -31,6 +31,7 @@ class CartController extends Controller
      */
     protected $cartRepository;
 
+
     /**
      * CartItemRepository object
      *
@@ -96,12 +97,15 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+   
     public function store($id)
     {
+       
         Event::fire('checkout.cart.item.add.before', $id);
 
         $result = Cart::addProduct($id, request()->except('_token'));
 
+        return $result;
         if (! $result) {
             $message = session()->get('warning') ?? session()->get('error');
 

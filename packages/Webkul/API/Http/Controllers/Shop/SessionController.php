@@ -2,7 +2,9 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Validation\ValidationException;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 
@@ -14,6 +16,8 @@ use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
  */
 class SessionController extends Controller
 {
+
+
     /**
      * Contains current guard
      *
@@ -31,11 +35,11 @@ class SessionController extends Controller
     /**
      * Controller instance
      *
-     * @param Webkul\Customer\Repositories\CustomerRepository $customerRepository
+     * @param CustomerRepository $customerRepository
      */
     public function __construct(CustomerRepository $customerRepository)
     {
-        $this->guard = request()->has('token') ? 'api' : 'customer';
+        $this->guard = request()->has('token') ? 'api' : 'customer-api';
 
         auth()->setDefaultDriver($this->guard);
 
@@ -53,6 +57,7 @@ class SessionController extends Controller
      */
     public function create()
     {
+        
         request()->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -70,6 +75,7 @@ class SessionController extends Controller
 
         $customer = auth($this->guard)->user();
 
+        
         return response()->json([
             'token' => $jwtToken,
             'message' => 'Logged in successfully.',
@@ -80,7 +86,7 @@ class SessionController extends Controller
     /**
      * Get details for current logged in customer
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function get()
     {
@@ -94,7 +100,9 @@ class SessionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
+     * @throws ValidationException
+     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function update()
     {
@@ -132,7 +140,7 @@ class SessionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy()
     {

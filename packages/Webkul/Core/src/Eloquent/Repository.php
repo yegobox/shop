@@ -5,6 +5,7 @@ namespace Webkul\Core\Eloquent;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Container\Container as App;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 /**
  * Reposotory
@@ -71,6 +72,7 @@ abstract class Repository extends BaseRepository {
      * @param array $columns
      *
      * @return mixed
+     * @throws RepositoryException
      */
     public function findOrFail($id, $columns = ['*'])
     {
@@ -84,6 +86,7 @@ abstract class Repository extends BaseRepository {
 
     /**
      * @return mixed
+     * @throws RepositoryException
      */
     public function count()
     {
@@ -97,7 +100,9 @@ abstract class Repository extends BaseRepository {
     }
 
     /**
+     * @param $columns
      * @return mixed
+     * @throws RepositoryException
      */
     public function sum($columns)
     {
@@ -112,6 +117,7 @@ abstract class Repository extends BaseRepository {
 
     /**
      * @return mixed
+     * @throws RepositoryException
      */
     public function avg($columns)
     {

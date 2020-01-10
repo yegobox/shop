@@ -44,6 +44,8 @@ Route::group(['middleware' => ['web']], function () {
             ])->name('admin.dashboard.index');
 
             //Customer Management Routes
+
+            
             Route::get('customers', 'Webkul\Admin\Http\Controllers\Customer\CustomerController@index')->defaults('_config', [
                 'view' => 'admin::customers.index'
             ])->name('admin.customer.index');
@@ -147,6 +149,14 @@ Route::group(['middleware' => ['web']], function () {
             Route::post('reviews/massupdate', 'Webkul\Product\Http\Controllers\ReviewController@massUpdate')->defaults('_config', [
                 'redirect' => 'admin.customer.review.index'
             ])->name('admin.customer.review.massupdate');
+
+                // Customer Audios Routes
+                Route::get('audios', 'Webkul\Admin\Http\Controllers\Customer\CustomerAudioController@index')->defaults('_config',[
+                    'view' => 'admin::customers.audios.index'
+                ])->name('admin.customers.audios.index');
+
+                Route::post('audios/delete/{id}', 'Webkul\Admin\Http\Controllers\Customer\CustomerAudioController@destroy')->name('admin.customers.audios.delete');
+
 
             // Customer Groups Routes
             Route::get('groups', 'Webkul\Admin\Http\Controllers\Customer\CustomerGroupController@index')->defaults('_config',[

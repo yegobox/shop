@@ -3,15 +3,14 @@
 namespace Webkul\Admin\Http\Controllers\Customer;
 
 use Webkul\Admin\Http\Controllers\Controller;
-use Webkul\Customer\Repositories\CustomerGroupRepository;
-
+use Webkul\Customer\Models\CustomerAudio;
 /**
  * Customer Group controlller
  *
  * @author    Rahul Shukla <rahulshukla.symfony517@webkul.com>
  * @copyright 2018 Webkul Software Pvt Ltd (http://www.webkul.com)
  */
-class CustomerGroupController extends Controller
+class CustomerAudioController extends Controller
 {
     /**
      * Contains route related configuration
@@ -25,21 +24,21 @@ class CustomerGroupController extends Controller
      *
      * @var array
     */
-    protected $customerGroupRepository;
+    protected $customerAudio;
 
      /**
      * Create a new controller instance.
      *
-     * @param \Webkul\Customer\Repositories\CustomerGroupRepository $customerGroupRepository;
+     * @param \Webkul\Customer\Repositories\customerAudio $customerRepository;
      * @return void
      */
-    public function __construct(CustomerGroupRepository $customerGroupRepository)
+    public function __construct(CustomerAudio  $customerAudio)
     {
         $this->_config = request('_config');
 
         $this->middleware('admin');
 
-        $this->customerGroupRepository = $customerGroupRepository;
+        $this->customerAudio = $customerAudio;
     }
 
     /**
@@ -69,20 +68,19 @@ class CustomerGroupController extends Controller
      */
     public function store()
     {
+        return 'heree';
+
         $this->validate(request(), [
-            'code' => ['required', 'unique:customer_groups,code', new \Webkul\Core\Contracts\Validations\Code],
-            'name' => 'required',
+            'audios' => 'required',
         ]);
 
         $data = request()->all();
 
-        $data['is_user_defined'] = 1;
+        $data['is_seen'] = 0;
 
-        $this->customerGroupRepository->create($data);
+       $data= $this->customerAudio->create($data);
 
-        session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Customer Group']));
-
-        return redirect()->route($this->_config['redirect']);
+        return response()->json(['data' => $data], 200);
     }
 
      /**
@@ -126,27 +124,20 @@ class CustomerGroupController extends Controller
      */
     public function destroy($id)
     {
-        $customerGroup = $this->customerGroupRepository->findOrFail($id);
+        $customerAudio = $this->customerAudio->findOrFail($id);
 
-        if ($customerGroup->is_user_defined == 0) {
-            session()->flash('warning', trans('admin::app.customers.customers.group-default'));
-        } else if (count($customerGroup->customer) > 0) {
-            session()->flash('warning', trans('admin::app.response.customer-associate', ['name' => 'Customer Group']));
-        } else {
+        if ($customerAudio) {
             try {
-                $this->customerGroupRepository->delete($id);
+                $customerAudio->delete($id);
 
-                session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Customer Group']));
+                session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Customer Audio']));
 
                 return response()->json(['message' => true], 200);
             } catch(\Exception $e) {
-                session()->flash('error', trans('admin::app.response.delete-failed', ['name' => 'Customer Group']));
+                session()->flash('error', trans('admin::app.response.delete-failed', ['name' => 'Customer Audio']));
             }
         }
 
         return response()->json(['message' => false], 400);
     }
-     function upload(){
-         return 'dddddd';
-     }
 }

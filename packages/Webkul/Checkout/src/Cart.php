@@ -12,7 +12,8 @@ use Webkul\Checkout\Models\CartPayment;
 use Webkul\Customer\Repositories\WishlistRepository;
 use Webkul\Customer\Repositories\CustomerAddressRepository;
 use Illuminate\Support\Facades\Event;
-
+use Auth;
+use Log;
 /**
  * Facades handler for all the methods to be implemented in Cart.
  *
@@ -118,7 +119,6 @@ class Cart {
     public function getCurrentCustomer()
     {
         $guard = request()->has('token') ? 'api' : 'customer';
-
         return auth()->guard($guard);
     }
 
@@ -140,8 +140,10 @@ class Cart {
 
         $product = $this->productRepository->findOneByField('id', $productId);
 
+        // return $data;
+        
         $cartProducts = $product->getTypeInstance()->prepareForCart($data);
-
+       
         if (is_string($cartProducts)) {
             $this->collectTotals();
 
@@ -315,6 +317,7 @@ class Cart {
         return true;
     }
 
+
     /**
      * This function handles when guest has some of cart products and then logs in.
      *
@@ -326,6 +329,7 @@ class Cart {
             $cart = $this->cartRepository->findOneWhere(['customer_id' => $this->getCurrentCustomer()->user()->id, 'is_active' => 1]);
 
             $guestCart = session()->get('cart');
+            
 
             //when the logged in customer is not having any of the cart instance previously and are active.
             if (! $cart) {
@@ -418,15 +422,18 @@ class Cart {
     {
         $cart = null;
 
+       
         if ($this->getCurrentCustomer()->check()) {
+           
             $cart = $this->cartRepository->findOneWhere([
                 'customer_id' => $this->getCurrentCustomer()->user()->id,
                 'is_active' => 1
             ]);
         } elseif (session()->has('cart')) {
+           
             $cart = $this->cartRepository->find(session()->get('cart')->id);
         }
-
+       
         return $cart && $cart->is_active ? $cart : null;
     }
 
@@ -446,7 +453,9 @@ class Cart {
         if ($cart->haveStockableItems()) {
             $data['shipping_address'] = $cart->shipping_address->toArray();
 
-            $data['selected_shipping_rate'] = $cart->selected_shipping_rate->toArray();
+            //TODO:fix the shipping rate later has an issue.
+            $data['selected_shipping_rate'] = [];
+            // $data['selected_shipping_rate'] = $cart->selected_shipping_rate->toArray();
         }
 
         $data['payment'] = $cart->payment->toArray();
@@ -567,6 +576,7 @@ class Cart {
      */
     public function saveShippingMethod($shippingMethodCode)
     {
+
         if (! $cart = $this->getCart())
             return false;
 
@@ -844,11 +854,12 @@ class Cart {
 
         if ($this->getCart()->haveStockableItems()) {
             $finalData = array_merge($finalData, [
-                'shipping_method' => $data['selected_shipping_rate']['method'],
-                'shipping_title' => $data['selected_shipping_rate']['carrier_title'] . ' - ' . $data['selected_shipping_rate']['method_title'],
-                'shipping_description' => $data['selected_shipping_rate']['method_description'],
-                'shipping_amount' => $data['selected_shipping_rate']['price'],
-                'base_shipping_amount' => $data['selected_shipping_rate']['base_price'],
+                //TODO:fix the shipping thing!
+                // 'shipping_method' => $data['selected_shipping_rate']['method'],
+                // 'shipping_title' => $data['selected_shipping_rate']['carrier_title'] . ' - ' . $data['selected_shipping_rate']['method_title'],
+                // 'shipping_description' => $data['selected_shipping_rate']['method_description'],
+                // 'shipping_amount' => $data['selected_shipping_rate']['price'],
+                // 'base_shipping_amount' => $data['selected_shipping_rate']['base_price'],
                 'shipping_address' => array_except($data['shipping_address'], ['id', 'cart_id']),
             ]);
         }

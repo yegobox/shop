@@ -2,6 +2,7 @@
 
 namespace Webkul\Shop\Http\Middleware;
 
+use Illuminate\Http\Request;
 use Webkul\Core\Repositories\LocaleRepository;
 use Closure;
 
@@ -13,7 +14,7 @@ class Locale
     protected $locale;
 
     /**
-     * @param \Webkul\Core\Repositories\LocaleRepository $locale
+     * @param LocaleRepository $locale
      */
     public function __construct(LocaleRepository $locale)
     {
@@ -23,8 +24,8 @@ class Locale
     /**
     * Handle an incoming request.
     *
-    * @param  \Illuminate\Http\Request  $request
-    * @param  \Closure  $next
+    * @param  Request  $request
+    * @param Closure $next
     * @return mixed
     */
     public function handle($request, Closure $next)

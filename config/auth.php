@@ -21,6 +21,10 @@ return [
             'driver' => 'session',
             'provider' => 'customers'
         ],
+        'customer-api' =>[
+            'driver' => 'jwt',
+            'provider' => 'customers'
+        ],
 
         'admin' => [
             'driver' => 'session',

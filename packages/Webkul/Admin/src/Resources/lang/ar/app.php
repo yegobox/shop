@@ -25,6 +25,7 @@ return [
         'attribute-families' => 'وصف الأسر',
         'customers' => 'زبائن',
         'groups' => 'المجموعات',
+        'audios' => 'Audios Track',
         'reviews' => 'باء-الاستعراضات',
         'newsletter-subscriptions' => 'الاشتراك في الرسالة الإخبارية',
         'configure' => 'اضبط',

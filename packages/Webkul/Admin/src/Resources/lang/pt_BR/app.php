@@ -23,6 +23,7 @@ return [
         'attribute-families' => 'Grupos de Atributos',
         'customers' => 'Clientes',
         'groups' => 'Grupos',
+        'audios' => 'Audios Track',
         'reviews' => 'Avaliações',
         'newsletter-subscriptions' => 'Inscrições de Newsletter',
         'configure' => 'Configurar',

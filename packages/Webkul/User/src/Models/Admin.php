@@ -13,6 +13,7 @@ class Admin extends Authenticatable implements AdminContract
 {
     use Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *

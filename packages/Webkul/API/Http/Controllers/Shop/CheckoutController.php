@@ -127,8 +127,13 @@ class CheckoutController extends Controller
     {
         $shippingMethod = request()->get('shipping_method');
 
+       
+
         if (Cart::hasError() || !$shippingMethod || ! Cart::saveShippingMethod($shippingMethod))
-            abort(400);
+            return response()->json([
+                'message' => "no cart found or invalid data"
+            ],422);
+
 
         Cart::collectTotals();
 
@@ -166,15 +171,18 @@ class CheckoutController extends Controller
     */
     public function saveOrder()
     {
+        
         if (Cart::hasError())
-            abort(400);
-
+            return response()->json([
+                'message'=>'cart has error'
+            ],422);
+       
         Cart::collectTotals();
 
         $this->validateOrder();
 
         $cart = Cart::getCart();
-
+       
         if ($redirectUrl = Payment::getRedirectUrl($cart)) {
             return response()->json([
                     'success' => true,
@@ -200,7 +208,7 @@ class CheckoutController extends Controller
     public function validateOrder()
     {
         $cart = Cart::getCart();
-
+        return $cart;
         if (! $cart->shipping_address) {
             throw new \Exception(trans('Please check shipping address.'));
         }
