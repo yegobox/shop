@@ -10,7 +10,24 @@
 
         <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/css/admin.css') }}">
+<style>
+.btn.btn-primary {
+    color: #fff!important;
+    background-color: #fea712!important;;
+    border-radius: 5px!important;;
+    border: 1px solid #fea712!important;;
 
+}
+
+.navbar-left ul.menubar li.menu-item.active a {
+    color: #fea712;
+}
+.control-group input:checked+.slider {
+    background-color: #fea712;
+}
+
+  
+</style>
         @yield('head')
 
         @yield('css')

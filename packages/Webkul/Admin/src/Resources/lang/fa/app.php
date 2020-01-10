@@ -26,6 +26,7 @@ return [
         'attribute-families' => 'ویژگی خانواده',
         'customers' => 'مشتریان',
         'groups' => 'گروه ها',
+        'audios' => 'Audios Track',
         'reviews' => 'بررسی ها',
         'newsletter-subscriptions' => 'اشتراک های خبرنامه',
         'configure' => 'پیکربندی',

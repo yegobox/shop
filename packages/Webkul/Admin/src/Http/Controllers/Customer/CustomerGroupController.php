@@ -146,4 +146,7 @@ class CustomerGroupController extends Controller
 
         return response()->json(['message' => false], 400);
     }
+     function upload(){
+         return 'dddddd';
+     }
 }

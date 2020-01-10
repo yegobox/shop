@@ -371,4 +371,6 @@ class OnepageController extends Controller
 
         return response()->json(['success' => 'Login successfully']);
     }
+
+    
 }

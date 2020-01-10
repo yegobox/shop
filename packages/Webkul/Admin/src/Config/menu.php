@@ -91,13 +91,23 @@ return [
         'route' => 'admin.customer.review.index',
         'sort' => 3,
         'icon-class' => ''
-    ], [
+    ], 
+    [
         'key' => 'customers.subscribers',
         'name' => 'admin::app.layouts.newsletter-subscriptions',
         'route' => 'admin.customers.subscribers.index',
         'sort' => 4,
         'icon-class' => ''
-    ], [
+    ],
+    [
+        'key' => 'customers.audios',
+        'name' => 'Audio Tracked',
+        'route' => 'admin.customers.audios.index',
+        'sort' => 5,
+        'icon-class' => ''
+    ], 
+    
+    [
         'key' => 'configuration',
         'name' => 'admin::app.layouts.configure',
         'route' => 'admin.configuration.index',

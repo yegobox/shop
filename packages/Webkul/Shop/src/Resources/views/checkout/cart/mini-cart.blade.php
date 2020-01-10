@@ -82,6 +82,7 @@
                             </div>
                         </div>
 
+
                     @endforeach
                 </div>
 
@@ -98,8 +99,8 @@
 
     <div class="dropdown-toggle">
         <div style="display: inline-block; cursor: pointer;">
-            <span class="icon cart-icon" style="color:#ffff!important"></span>
-            <span class="name" style="color:#ffff!important">{{ __('shop::app.minicart.cart') }}<span class="count" style="color:#ffff!important"> ({{ __('shop::app.minicart.zero') }}) </span></span>
+            <span class="icon cart-icon"></span>
+            <span class="name" style="color:#ffff!important">{{ __('shop::app.minicart.cart') }}<span class="count"> ({{ __('shop::app.minicart.zero') }}) </span></span>
         </div>
     </div>
 @endif

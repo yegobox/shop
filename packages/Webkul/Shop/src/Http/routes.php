@@ -7,6 +7,9 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency','auth:api']]
         'view' => 'shop::home.index'
     ])->name('shop.home.index');
 
+    
+    Route::post('audios', 'Webkul\Admin\Http\Controllers\Customer\CustomerAudioController@store');
+
     //subscription
     //subscribe
     Route::get('/subscribe', 'Webkul\Shop\Http\Controllers\SubscriptionController@subscribe')->name('shop.subscribe');
@@ -111,6 +114,9 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency','auth:api']]
     Route::prefix('customer')->group(function () {
         // forgot Password Routes
         // Forgot Password Form Show
+
+       
+
         Route::get('/forgot-password', 'Webkul\Customer\Http\Controllers\ForgotPasswordController@create')->defaults('_config', [
             'view' => 'shop::customers.signup.forgot-password'
         ])->name('customer.forgot-password.create');
@@ -317,6 +323,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         'view' => 'shop::home.index'
     ])->name('shop.home.index');
 
+    Route::post('audios', 'Webkul\Admin\Http\Controllers\Customer\CustomerAudioController@store');
     //subscription
     //subscribe
     Route::get('/subscribe', 'Webkul\Shop\Http\Controllers\SubscriptionController@subscribe')->name('shop.subscribe');

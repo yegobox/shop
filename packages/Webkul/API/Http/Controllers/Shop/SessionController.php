@@ -17,6 +17,7 @@ use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 class SessionController extends Controller
 {
 
+
     /**
      * Contains current guard
      *
@@ -56,6 +57,7 @@ class SessionController extends Controller
      */
     public function create()
     {
+        
         request()->validate([
             'email' => 'required|email',
             'password' => 'required'

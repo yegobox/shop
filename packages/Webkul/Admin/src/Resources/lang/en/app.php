@@ -93,6 +93,7 @@ return [
         'groups' => 'Groups',
         'reviews' => 'Reviews',
         'newsletter-subscriptions' => 'Newsletter Subscriptions',
+        'audios' => 'Audios Track',
         'configure' => 'Configure',
         'settings' => 'Settings',
         'locales' => 'Locales',

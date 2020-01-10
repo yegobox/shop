@@ -6,6 +6,8 @@ window.VeeValidate = require("vee-validate");
 Vue.use(VeeValidate);
 Vue.prototype.$http = axios
 
+Vue.component('load-audios', require('./components/load-audios.vue').default);
+
 window.eventBus = new Vue();
 
 $(document).ready(function () {

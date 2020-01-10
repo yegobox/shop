@@ -12,12 +12,15 @@
                     </td>
                 @endif
 
+              
                 @foreach ($columns as $column)
                     @php
                         $columnIndex = explode('.', $column['index']);
 
                         $columnIndex = end($columnIndex);
                     @endphp
+
+                   
 
                     @if (isset($column['wrapper']))
                         @if (isset($column['closure']) && $column['closure'] == true)
@@ -26,6 +29,7 @@
                             <td data-value="{{ $column['label'] }}">{{ $column['wrapper']($record) }}</td>
                         @endif
                     @else
+                      
                         @if ($column['type'] == 'price')
                             @if (isset($column['currencyCode']))
                                 <td data-value="{{ $column['label'] }}">{{ core()->formatPrice($record->{$columnIndex}, $column['currencyCode']) }}</td>
@@ -33,7 +37,17 @@
                                 <td data-value="{{ $column['label'] }}">{{ core()->formatBasePrice($record->{$columnIndex}) }}</td>
                             @endif
                         @else
-                            <td data-value="{{ $column['label'] }}">{{ $record->{$columnIndex} }}</td>
+                                @if ($column['label']=='audios')
+                                <td>
+                                <audio controls>
+                                    <source src="{{ $record->{$columnIndex} }}" >
+                                    Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                @else
+                                <td data-value="{{ $column['label'] }}">{{ $record->{$columnIndex} }}</td>
+                                @endif
+                            
                         @endif
                     @endif
                 @endforeach
