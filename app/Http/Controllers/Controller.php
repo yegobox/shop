@@ -51,6 +51,6 @@ class Controller extends BaseController
         unset($data['password']);
         }
         $response = $this->customerRepository->update($data, $id);
-        return $response;
+        return response()->json(['data'=>$response]);
     }
 }
