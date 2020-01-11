@@ -15,6 +15,7 @@ use Webkul\Product\Repositories\ProductReviewRepository;
  */
 class CustomerController extends Controller
 {
+
     /**
      * Contains route related configuration
      *

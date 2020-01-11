@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 
+
 Route::get('products',function (){
     return;
 });
@@ -24,6 +25,7 @@ Route::get('categories',function (){
 Route::post('customer/register',function(){
    return;
 });
+
 Route::post('customer/login',function(){
    return;
 });
@@ -52,3 +54,5 @@ Route::post('audios',function(){
 
   return response()->json(['data' => $data], 200);
 });
+
+Route::post('edit_customer/{id}','Controller@edit');

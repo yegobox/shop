@@ -57,6 +57,9 @@ class SessionController extends Controller
      */
     public function create()
     {
+
+
+      
         
         request()->validate([
             'email' => 'required|email',
@@ -73,6 +76,7 @@ class SessionController extends Controller
 
         Event::fire('customer.after.login', request('email'));
 
+      
         $customer = auth($this->guard)->user();
 
         
