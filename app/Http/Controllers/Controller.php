@@ -35,7 +35,7 @@ class Controller extends BaseController
             'password_confirmation' => 'required_with:password',
         ]);
         if($validator->fails()){
-            return response()->json(['error'=>$validator->errors()]);
+            return response()->json(['error'=>$validator->errors()],422);
         }
     
         $data = collect(request()->input())->except('_token')->toArray();
