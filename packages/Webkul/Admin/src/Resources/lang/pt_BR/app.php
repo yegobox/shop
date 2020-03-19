@@ -1047,6 +1047,11 @@ return [
             'footer-content' => 'Texto de rodapé',
             'locale-options' => 'Opções de unidade',
             'weight-unit' => 'Unidade de peso',
+            'email-settings'    => 'Email Settings',
+            'email-sender-name' => 'Email Sender Name',
+            'shop-email-from'   => 'Shop Email Address [For sending emails]',
+            'admin-name'    => 'Admin Name',
+            'admin-email' => 'Admin Email',
             'design' => 'Design',
             'admin-logo' => 'Admin Logo',
             'logo-image' => 'Logo Imagem',
@@ -1058,7 +1063,9 @@ return [
             'order-number-prefix' => 'Order Number Prefix',
             'order-number-length' => 'Order Number Length',
             'order-number-suffix' => 'Order Number Suffix',
-            'sandbox' => 'Sandbox'
+            'sandbox' => 'Sandbox',
+            'invoice-slip-design' => 'Invoice Slip Design',
+            'logo' => 'logo'
         ]
     ]
 ];

@@ -936,6 +936,11 @@ return [
             'footer-content' => 'Footer Text',
             'locale-options' => 'Unit Options',
             'weight-unit' => 'Weight Unit',
+            'email-settings'    => 'Email Settings',
+            'email-sender-name' => 'Email Sender Name',
+            'shop-email-from'   => 'Shop Email Address [For sending emails]',
+            'admin-name'    => 'Admin Name',
+            'admin-email' => 'Admin Email',
             'admin-page-limit' => 'العناصر الافتراضية لكل صفحة (المشرف)',
             'design' => 'Design',
             'admin-logo' => 'Admin Logo',
@@ -949,7 +954,9 @@ return [
             'order-number-length' => 'Order Number Length',
             'order-number-suffix' => 'Order Number Suffix',
             'default' => 'Default',
-            'sandbox' => 'Sandbox'
+            'sandbox' => 'Sandbox',
+            'invoice-slip-design' => 'Invoice Slip Design',
+            'logo' => 'logo'
         ]
     ]
 ];

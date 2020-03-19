@@ -1064,13 +1064,20 @@ return [
             'footer-content' => 'متن فوتر',
             'locale-options' => 'گزینه های واحد',
             'weight-unit' => 'واحد وزن',
+            'email-settings'    => 'Email Settings',
+            'email-sender-name' => 'Email Sender Name',
+            'shop-email-from'   => 'Shop Email Address [For sending emails]',
+            'admin-name'    => 'Admin Name',
+            'admin-email' => 'Admin Email',
             'design' => 'طراحی',
             'admin-logo' => 'لوگو مدیر',
             'logo-image' => 'تصویر لوگو',
             'credit-max' => 'اعتبار مشتری حداکثر',
             'credit-max-value' => 'حداکثر میزان اعتبار',
             'use-credit-max' => 'استفاده از حداکثر اعتبار',
-            'sandbox' => 'Sandbox'
+            'sandbox' => 'Sandbox',
+            'invoice-slip-design' => 'Invoice Slip Design',
+            'logo' => 'logo'
         ]
     ]
 ];

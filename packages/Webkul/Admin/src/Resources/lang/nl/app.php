@@ -1283,6 +1283,11 @@ return [
             'footer-toggle' => 'Toggle footer',
             'locale-options' => 'Eenheid opties',
             'weight-unit' => 'Gewichtseenheid',
+            'email-settings'    => 'Email Settings',
+            'email-sender-name' => 'Email Sender Name',
+            'shop-email-from'   => 'Shop Email Address [For sending emails]',
+            'admin-name'    => 'Admin Name',
+            'admin-email' => 'Admin Email',
             'admin-page-limit' => 'Standaarditems per pagina (Admin)',
             'design' => 'Ontwerp',
             'admin-logo' => 'Admin Logo',
@@ -1298,7 +1303,9 @@ return [
             'default' => 'Standaard',
             'sandbox' => 'Sandbox',
             'all-channels' => 'Alles',
-            'all-locales' => 'Alles'
+            'all-locales' => 'Alles',
+            'invoice-slip-design' => 'Invoice Slip Design',
+            'logo' => 'logo'
         ]
     ]
 ];
