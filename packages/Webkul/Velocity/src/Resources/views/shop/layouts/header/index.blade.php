@@ -5,6 +5,7 @@
     </div>
 </header>
 
+
 @push('scripts')
     <script type="text/javascript">
         (() => {

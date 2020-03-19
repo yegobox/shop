@@ -9,6 +9,7 @@
     </div>
 </div>
 
+
 @push('scripts')
     <script type="text/x-template" id="hot-category-template">
         <div class="col-lg-3 col-md-12 hot-category-wrapper" v-if="hotCategoryDetails">
